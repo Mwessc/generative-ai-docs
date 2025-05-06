@@ -1,0 +1,84 @@
+{
+    "version": "0.2.0",
+    // Note: IDL debugging in VSCode has known limitations:
+    // - The "Pause" button does not work on Windows
+    // - Debug console may show internal output messages
+    // - Some features may not be fully implemented
+    "configurations": [
+        {
+            "name": "Flutter",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Module",
+            "type": "python",
+            "request": "launch",
+            "module": "${input:moduleName}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Django",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": ["runserver"],
+            "django": true,
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "cobol",
+            "request": "launch",
+            "name": "COBOL (native): Wait for attachment",
+            "waitForAttachment": {
+                "any": {}
+            }
+        },
+        {
+            "type": "cobol",
+            "request": "launch",
+            "name": "COBOL (native): Attach to process",
+            "pid": "${command:pickProcess}"
+        },
+        {
+            "type": "cobol",
+            "request": "launch",
+            "name": "COBOL (native): Launch",
+            "program": "${workspaceFolder}/src/hello.cbl",
+            "cwd": "${workspaceFolder}/src",
+            "stopOnEntry": false,
+            "env": {
+                "PATH": "${env:PATH}"
+            }
+        },
+        {
+            "name": "IDL Debug",
+            "type": "idl",
+            "request": "launch",
+            "program": "${file}",
+            "stopOnEntry": false,
+            "workingDirectory": "${fileDirname}",
+            "idlExecutable": "${env:IDL_DIR}/bin/idl",
+            "console": "integratedTerminal"
+        }
+    ],
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "compounds": [
+        // Use a compound configuration to launch multiple configurations at once
+        // (e.g., a server and a client).
+        // See https://code.visualstudio.com/docs/editor/debugging#_compound-configurations
+        // for more information.
+        // Note: The `preLaunchTask` attribute is not supported in compound configurations.
+        // See
+    ]
+}
